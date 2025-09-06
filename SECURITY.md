@@ -20,7 +20,7 @@ We take the security of our GCP Terraform modules seriously. If you discover a s
 
 Instead, please:
 
-1. **Email**: Send details to `security@yourcompany.com`
+1. **Email**: Send details to `security@cloudon-one.com`
 2. **Subject**: Include "SECURITY VULNERABILITY - GCP Terraform Modules"
 3. **Include**:
    - Description of the vulnerability
@@ -67,6 +67,7 @@ We appreciate responsible disclosure and will:
 When contributing to this project:
 
 1. **Never commit sensitive data**:
+
    ```bash
    # Use .gitignore patterns
    *.tfvars
@@ -95,6 +96,7 @@ When contributing to this project:
 When using these modules:
 
 1. **Secrets Management**:
+
    ```hcl
    # ❌ Don't do this
    variable "db_password" {
@@ -110,6 +112,7 @@ When using these modules:
    ```
 
 2. **Network Security**:
+
    ```hcl
    # Enable private clusters
    private_cluster_config {
@@ -127,6 +130,7 @@ When using these modules:
    ```
 
 3. **State File Security**:
+
    ```hcl
    # Use remote state with encryption
    terraform {
@@ -137,17 +141,6 @@ When using these modules:
      }
    }
    ```
-
-## Supported Versions
-
-We provide security updates for the following versions:
-
-| Version | Supported          | End of Life |
-| ------- | ------------------ | ----------- |
-| 1.2.x   | ✅ Active support  | TBD         |
-| 1.1.x   | ✅ Security fixes  | 2025-12-31  |
-| 1.0.x   | ⚠️ Critical fixes  | 2025-06-30  |
-| < 1.0   | ❌ No support      | 2024-12-31  |
 
 ### Version Support Policy
 
@@ -183,18 +176,21 @@ graph TB
 ### 🔐 Security Controls by Module
 
 #### terraform-google-svc-projects
+
 - ✅ Project isolation and separation
 - ✅ Billing account association
 - ✅ API enablement control
 - ✅ Resource labeling for governance
 
 #### terraform-google-svpc
+
 - ✅ Private subnets with no external IPs
 - ✅ Firewall rules with least privilege
 - ✅ VPC Flow Logs for monitoring
 - ✅ Private Google Access
 
 #### terraform-google-gke
+
 - ✅ Private cluster with no public IPs
 - ✅ Workload Identity for pod authentication
 - ✅ Network policies for micro-segmentation
@@ -204,6 +200,7 @@ graph TB
 - ✅ Pod Security Standards enforcement
 
 #### terraform-google-bastion
+
 - ✅ SSH key-based authentication only
 - ✅ IAP tunnel for secure access
 - ✅ Fail2ban for brute force protection
@@ -211,6 +208,7 @@ graph TB
 - ✅ Network-based access controls
 
 #### terraform-google-cloudsql
+
 - ✅ Private IP configuration only
 - ✅ SSL/TLS encryption in transit
 - ✅ Encryption at rest
@@ -219,12 +217,14 @@ graph TB
 - ✅ Authorized networks restriction
 
 #### terraform-google-iam
+
 - ✅ Principle of least privilege
 - ✅ Service account key rotation
 - ✅ Conditional IAM policies
 - ✅ IAM audit logging
 
 #### terraform-google-vpc-sc
+
 - ✅ Data exfiltration protection
 - ✅ API access restrictions
 - ✅ Service perimeter enforcement
@@ -273,6 +273,7 @@ Before deploying to production:
 We implement the following security tests:
 
 1. **Static Analysis**:
+
    ```bash
    # Terraform security scanning
    tfsec .
@@ -281,6 +282,7 @@ We implement the following security tests:
    ```
 
 2. **Infrastructure Testing**:
+
    ```bash
    # Test security controls
    terratest test/security_test.go
@@ -288,6 +290,7 @@ We implement the following security tests:
    ```
 
 3. **Compliance Validation**:
+
    ```bash
    # CIS benchmark validation
    gcloud compute instances list --format="table(name,status,zone,machineType)"
@@ -391,8 +394,8 @@ Security advisories will be published:
 
 For security-related questions:
 
-- **General Security**: `security@yourcompany.com`
-- **Vulnerability Reports**: `security@yourcompany.com` (PGP key available)
+- **General Security**: `security@cloudon-one.com`
+- **Vulnerability Reports**: `security@cloudon-one.com` (PGP key available)
 - **Security Questions**: GitHub Discussions with "security" tag
 
 ---
